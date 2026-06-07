@@ -1,7 +1,5 @@
-import { redirect } from "next/navigation";
-
 const Homepage = () => {
-  redirect("/privacy-policy");
+  return <div>Homepage</div>;
 };
 
 export default Homepage;

@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2015",        // Ensure ES2015+ for modern features
-    "lib": ["es2015", "dom"],  // Include ES2015 and DOM types
+    "target": "es2015", // Ensure ES2015+ for modern features
+    "lib": [
+      "es2015",
+      "dom"
+    ], // Include ES2015 and DOM types
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,7 +16,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -21,9 +24,21 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/users/categories/components/CategoryDetail/CategoryDetail/[id]", "src/custom.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/users/categories/components/CategoryDetail/CategoryDetail/[id]",
+    "src/custom.d.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

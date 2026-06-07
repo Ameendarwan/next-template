@@ -1,20 +1,30 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
   images: {
-    domains: ["212.24.107.88", "res.cloudinary.com","budgetwise-s3.s3.us-east-2.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "212.24.107.88",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "budgetwise-s3.s3.us-east-2.amazonaws.com",
+      },
+    ],
   },
   reactStrictMode: false,
-  webpack(config, options) {
-    if (options.dev) {
-      // Disable Fast Refresh
-      config.resolve.alias["react-refresh/runtime"] = false;
-    }
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-    return config;
+  turbopack: {
+    root: projectRoot,
   },
 };
 
